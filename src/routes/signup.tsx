@@ -8,7 +8,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { useI18n } from "@/lib/i18n";
 import { supabase } from "@/integrations/supabase/client";
 
-type Search = { plan?: string; interval?: "monthly" | "yearly" };
+type Search = { plan?: string | undefined; interval?: "monthly" | "yearly" | undefined };
 
 export const Route = createFileRoute("/signup")({
   validateSearch: (s: Record<string, unknown>): Search => ({
