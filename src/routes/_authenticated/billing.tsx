@@ -86,6 +86,11 @@ function BillingPage() {
                     {t("billing.cancel")}
                   </Button>
                 )}
+                {data?.isAdmin && (
+                  <Button variant="ghost" asChild>
+                    <Link to="/admin">{t("admin.title")}</Link>
+                  </Button>
+                )}
               </div>
 
               {confirming && (
