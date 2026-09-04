@@ -41,6 +41,72 @@ export type Database = {
         }
         Relationships: []
       }
+      generation_jobs: {
+        Row: {
+          aspect_ratio: string | null
+          attempts: number
+          completed_at: string | null
+          created_at: string
+          credits_cost: number
+          credits_refunded: boolean
+          duration_seconds: number | null
+          error_message: string | null
+          id: string
+          kind: string
+          model: string | null
+          prompt: string
+          provider_job_id: string | null
+          resolution: string | null
+          result_text: string | null
+          status: string
+          storage_path: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          aspect_ratio?: string | null
+          attempts?: number
+          completed_at?: string | null
+          created_at?: string
+          credits_cost?: number
+          credits_refunded?: boolean
+          duration_seconds?: number | null
+          error_message?: string | null
+          id?: string
+          kind: string
+          model?: string | null
+          prompt: string
+          provider_job_id?: string | null
+          resolution?: string | null
+          result_text?: string | null
+          status?: string
+          storage_path?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          aspect_ratio?: string | null
+          attempts?: number
+          completed_at?: string | null
+          created_at?: string
+          credits_cost?: number
+          credits_refunded?: boolean
+          duration_seconds?: number | null
+          error_message?: string | null
+          id?: string
+          kind?: string
+          model?: string | null
+          prompt?: string
+          provider_job_id?: string | null
+          resolution?: string | null
+          result_text?: string | null
+          status?: string
+          storage_path?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       payment_events: {
         Row: {
           created_at: string
@@ -353,6 +419,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      refund_credits: {
+        Args: { _amount: number; _reason: string; _user_id: string }
+        Returns: Json
       }
     }
     Enums: {
