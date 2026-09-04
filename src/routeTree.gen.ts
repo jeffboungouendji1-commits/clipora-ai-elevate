@@ -18,6 +18,7 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticated/billing'
 import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedStudioRouteImport } from './routes/_authenticated/studio'
 import { Route as PaymentCallbackRouteImport } from './routes/payment/callback'
 import { Route as PaymentFailedRouteImport } from './routes/payment/failed'
 import { Route as PaymentPendingRouteImport } from './routes/payment/pending'
@@ -68,6 +69,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedStudioRoute = AuthenticatedStudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const PaymentCallbackRoute = PaymentCallbackRouteImport.update({
   id: '/payment/callback',
   path: '/payment/callback',
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/billing': typeof AuthenticatedBillingRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/studio': typeof AuthenticatedStudioRoute
   '/payment/callback': typeof PaymentCallbackRoute
   '/payment/failed': typeof PaymentFailedRoute
   '/payment/pending': typeof PaymentPendingRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/billing': typeof AuthenticatedBillingRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/studio': typeof AuthenticatedStudioRoute
   '/payment/callback': typeof PaymentCallbackRoute
   '/payment/failed': typeof PaymentFailedRoute
   '/payment/pending': typeof PaymentPendingRoute
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/_authenticated/billing': typeof AuthenticatedBillingRoute
   '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/studio': typeof AuthenticatedStudioRoute
   '/payment/callback': typeof PaymentCallbackRoute
   '/payment/failed': typeof PaymentFailedRoute
   '/payment/pending': typeof PaymentPendingRoute
@@ -153,6 +162,7 @@ export interface FileRouteTypes {
     | '/billing'
     | '/checkout'
     | '/dashboard'
+    | '/studio'
     | '/payment/callback'
     | '/payment/failed'
     | '/payment/pending'
@@ -168,6 +178,7 @@ export interface FileRouteTypes {
     | '/billing'
     | '/checkout'
     | '/dashboard'
+    | '/studio'
     | '/payment/callback'
     | '/payment/failed'
     | '/payment/pending'
@@ -184,6 +195,7 @@ export interface FileRouteTypes {
     | '/_authenticated/billing'
     | '/_authenticated/checkout'
     | '/_authenticated/dashboard'
+    | '/_authenticated/studio'
     | '/payment/callback'
     | '/payment/failed'
     | '/payment/pending'
@@ -269,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/studio': {
+      id: '/_authenticated/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof AuthenticatedStudioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/payment/callback': {
       id: '/payment/callback'
       path: '/payment/callback'
@@ -312,6 +331,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedBillingRoute: typeof AuthenticatedBillingRoute
   AuthenticatedCheckoutRoute: typeof AuthenticatedCheckoutRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedStudioRoute: typeof AuthenticatedStudioRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -319,6 +339,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedBillingRoute: AuthenticatedBillingRoute,
   AuthenticatedCheckoutRoute: AuthenticatedCheckoutRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedStudioRoute: AuthenticatedStudioRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

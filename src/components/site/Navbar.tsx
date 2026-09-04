@@ -78,6 +78,9 @@ export function Navbar() {
           {user ? (
             <>
               <Button variant="ghost" size="sm" asChild>
+                <Link to="/studio">{t("nav.studio")}</Link>
+              </Button>
+              <Button variant="ghost" size="sm" asChild>
                 <Link to="/dashboard">{t("nav.dashboard")}</Link>
               </Button>
               <Button variant="ghost" size="sm" onClick={signOut}>
